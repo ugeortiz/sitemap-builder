@@ -235,13 +235,12 @@
 
   <!-- ── Main Content ─────────────────────────────────── -->
   <main style="display:flex;flex-direction:column;min-width:0;overflow-y:auto;">
-    <div style="padding:var(--spacing-6) var(--spacing-7);display:flex;flex-direction:column;gap:var(--spacing-7);">
-
+    <div style="display:flex;flex-direction:column;">
 
       <!-- Rules ───────────────────────────────────────── -->
-      <section>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--spacing-3);">
-          <h2 style="margin:0;font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Rules</h2>
+      <section style="padding:var(--spacing-6) var(--spacing-7) var(--spacing-5);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--spacing-4);">
+          <h2 style="margin:0;font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Rules</h2>
           <button class="btn btn--secondary btn--sm" type="button" id="add-rule-btn">
             <svg class="lexicon-icon"><use href="#plus"></use></svg>
             Add Rule
@@ -271,10 +270,8 @@
       </section>
 
       <!-- Configuration ──────────────────────────────── -->
-      <section class="sheet" style="padding-bottom:var(--spacing-8);">
-        <header class="sheet-header">
-          <h2 class="sheet-title">Configuration</h2>
-        </header>
+      <section style="border-top:1px solid var(--color-secondary-l3);padding:var(--spacing-6) var(--spacing-7) var(--spacing-7);">
+        <h2 style="margin:0 0 var(--spacing-5);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Configuration</h2>
 
         <div class="input">
           <label class="input__label" for="max-urls">Max URLs per Sitemap</label>
@@ -331,9 +328,9 @@
       </section>
 
       <!-- Sitemap Preview ─────────────────────────────── -->
-      <section style="padding-bottom:var(--spacing-8);">
+      <section style="border-top:1px solid var(--color-secondary-l3);padding:var(--spacing-6) var(--spacing-7) var(--spacing-8);">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-4);">
-          <h2 style="margin:0;font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Sitemap Preview</h2>
+          <h2 style="margin:0;font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Sitemap Preview</h2>
           <div style="display:flex;align-items:center;gap:var(--spacing-4);">
             <label class="toggle" style="margin:0;">
               <input type="checkbox" class="toggle__input" id="preview-comments" checked>

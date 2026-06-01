@@ -279,8 +279,9 @@
     </div>
 
     <!-- Overview ────────────────────────────────────── -->
-    <div style="padding:var(--spacing-5) var(--spacing-6) 0;">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-4);margin-bottom:var(--spacing-5);">
+    <section style="padding:var(--spacing-6) var(--spacing-6) var(--spacing-5);">
+      <h2 style="margin:0 0 var(--spacing-4);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Overview</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-4);">
         <article class="card">
           <div class="card__body" style="flex-direction:row;justify-content:space-between;align-items:flex-start;">
             <div>
@@ -318,10 +319,12 @@
           </div>
         </article>
       </div>
-    </div>
+    </section>
 
     <!-- Sitemaps Table -->
-    <div style="padding:var(--spacing-5) var(--spacing-6);">
+    <section style="border-top:1px solid var(--color-secondary-l3);padding:var(--spacing-6) var(--spacing-6) var(--spacing-5);">
+      <h2 style="margin:0 0 var(--spacing-4);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Sitemaps</h2>
+    <div>
       <table class="table" id="sitemaps-table">
         <thead>
           <tr>
@@ -399,10 +402,11 @@
         </tbody>
       </table>
     </div>
+    </section>
 
     <!-- Grouping ─────────────────────────────────────── -->
-    <div style="padding:0 var(--spacing-6) var(--spacing-8);">
-      <h2 style="margin:0 0 var(--spacing-1);font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Grouping</h2>
+    <section style="border-top:1px solid var(--color-secondary-l3);padding:var(--spacing-6) var(--spacing-6) var(--spacing-8);">
+      <h2 style="margin:0 0 var(--spacing-1);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:0.05em;color:var(--color-secondary);">Grouping</h2>
       <p style="margin:0 0 var(--spacing-4);font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.65;">Choose how sitemaps are split into separate files.</p>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-3);margin-bottom:var(--spacing-3);">
@@ -529,7 +533,7 @@
 
       </div>
       <p id="grouping-note" style="margin:0;font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.6;">3 sitemaps will be generated based on available locales.</p>
-    </div>
+    </section>
 
   </main>
 </div>
