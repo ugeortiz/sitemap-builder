@@ -3916,7 +3916,7 @@
 
 .table__title {
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  color: var(--color-dark);
   text-decoration: none;
 }
 
