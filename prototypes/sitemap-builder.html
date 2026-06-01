@@ -613,7 +613,7 @@
       var isInc = rule.type === 'include';
       var tdBadge = document.createElement('td');
       tdBadge.innerHTML =
-        '<span class="label label--sm label--bold ' + (isInc ? 'label--success' : 'label--danger') + '">' +
+        '<span class="label label--sm ' + (isInc ? 'label--success' : 'label--danger') + '">' +
           (isInc ? 'Include' : 'Exclude') +
         '</span>';
       tr.appendChild(tdBadge);
