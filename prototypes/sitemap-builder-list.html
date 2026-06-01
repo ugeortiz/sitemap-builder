@@ -420,8 +420,8 @@
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--spacing-3);margin-bottom:var(--spacing-3);">
 
-        <div class="card js-grouping-card" data-value="locale" data-note="3 sitemaps will be generated based on available locales." tabindex="0" role="radio" aria-checked="true" style="cursor:pointer;outline:2px solid var(--color-primary);outline-offset:-2px;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="locale" data-note="3 sitemaps will be generated based on available locales." tabindex="0" role="radio" aria-checked="true" style="cursor:pointer;border-radius:12px;outline:2px solid var(--color-primary);outline-offset:-2px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-primary);"><use href="#globe"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);"><use href="#check-circle-full"></use></svg>
@@ -440,8 +440,8 @@
           </div>
         </div>
 
-        <div class="card js-grouping-card" data-value="content-type" data-note="4 sitemaps will be generated based on content types." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="content-type" data-note="4 sitemaps will be generated based on content types." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;border-radius:12px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#document-text"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);display:none;"><use href="#check-circle-full"></use></svg>
@@ -460,8 +460,8 @@
           </div>
         </div>
 
-        <div class="card js-grouping-card" data-value="site-section" data-note="3 sitemaps will be generated based on URL path sections." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="site-section" data-note="3 sitemaps will be generated based on URL path sections." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;border-radius:12px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#hierarchy"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);display:none;"><use href="#check-circle-full"></use></svg>
@@ -480,8 +480,8 @@
           </div>
         </div>
 
-        <div class="card js-grouping-card" data-value="date-published" data-note="3 sitemaps will be generated based on publication year." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="date-published" data-note="3 sitemaps will be generated based on publication year." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;border-radius:12px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#calendar"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);display:none;"><use href="#check-circle-full"></use></svg>
@@ -500,8 +500,8 @@
           </div>
         </div>
 
-        <div class="card js-grouping-card" data-value="priority-level" data-note="3 sitemaps will be generated based on priority levels." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="priority-level" data-note="3 sitemaps will be generated based on priority levels." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;border-radius:12px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#order-list-down"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);display:none;"><use href="#check-circle-full"></use></svg>
@@ -520,8 +520,8 @@
           </div>
         </div>
 
-        <div class="card js-grouping-card" data-value="update-frequency" data-note="4 sitemaps will be generated based on update frequency." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;">
-          <div class="card__body" style="gap:var(--spacing-2);">
+        <div class="card js-grouping-card" data-value="update-frequency" data-note="4 sitemaps will be generated based on update frequency." tabindex="0" role="radio" aria-checked="false" style="cursor:pointer;border-radius:12px;">
+          <div class="card__body" style="gap:var(--spacing-3);padding:var(--spacing-5);">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;">
               <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#reload"></use></svg>
               <svg class="lexicon-icon js-check-icon" style="color:var(--color-primary);display:none;"><use href="#check-circle-full"></use></svg>
@@ -652,6 +652,7 @@
       });
       card.style.outline = '2px solid var(--color-primary)';
       card.style.outlineOffset = '-2px';
+      card.style.borderRadius = '12px';
       card.setAttribute('aria-checked', 'true');
       card.querySelector('.js-check-icon').style.display = '';
       card.querySelector('.js-card-icon').style.color = 'var(--color-primary)';
