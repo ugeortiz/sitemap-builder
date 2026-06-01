@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype</title>
+
+  <!-- Lexicon kit — in this order -->
+  <script>(function(){
+    var S=['light','light-hc','dark','dark-hc'];
+    function apply(){try{
+      var r=document.documentElement;
+      var s=localStorage.getItem('vanilla-skin')||'light';
+      S.forEach(function(c){r.classList.remove(c);});
+      r.classList.add(S.indexOf(s)>-1?s:'light');
+      if(localStorage.getItem('vanilla-cms-style')==='1'){
+        r.style.setProperty('--rounded-sm','4px');
+        r.style.setProperty('--rounded-md','8px');
+        r.style.setProperty('--rounded-lg','16px');
+      }else{
+        r.style.removeProperty('--rounded-sm');
+        r.style.removeProperty('--rounded-md');
+        r.style.removeProperty('--rounded-lg');
+      }
+    }catch(e){}}
+    apply();
+    window.addEventListener('pageshow',apply);
+  })()</script>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../tokens-high-contrast.css">
+  <link rel="stylesheet" href="../tokens-dark.css">
+  <link rel="stylesheet" href="../components.css">
+  <script src="../icons.js"></script>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     EDIT BELOW.
+     Components: see ../components.html for live variants (all components, one page).
+     Icons: <svg class="lexicon-icon"><use href="#name"></use></svg>
+            (513 names — grep ../icons.svg for `<symbol id=`)
+     Tokens only: var(--color-…), var(--spacing-…), var(--font-size-…).
+     ════════════════════════════════════════════════════════════════ -->
+
+<main style="padding: var(--spacing-7);">
+  <h1 style="font-size: var(--font-size-md); font-weight: var(--font-weight-bold);">Replace this with your screen</h1>
+  <p style="color: var(--color-secondary); font-size: var(--font-size-sm);">
+    Copy this file as <code>vanilla/prototypes/&lt;slug&gt;.html</code> and start composing.
+  </p>
+</main>
+
+</body>
+</html>

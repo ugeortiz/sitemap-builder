@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap Builder — Lexicon Vanilla</title>
+
+  <script>(function(){
+    var S=['light','light-hc','dark','dark-hc'];
+    function apply(){try{
+      var r=document.documentElement;
+      var s=localStorage.getItem('vanilla-skin')||'light';
+      S.forEach(function(c){r.classList.remove(c);});
+      r.classList.add(S.indexOf(s)>-1?s:'light');
+      if(localStorage.getItem('vanilla-cms-style')==='1'){
+        r.style.setProperty('--rounded-sm','4px');
+        r.style.setProperty('--rounded-md','8px');
+        r.style.setProperty('--rounded-lg','16px');
+      }else{
+        r.style.removeProperty('--rounded-sm');
+        r.style.removeProperty('--rounded-md');
+        r.style.removeProperty('--rounded-lg');
+      }
+    }catch(e){}}
+    apply();
+    window.addEventListener('pageshow',apply);
+  })()</script>
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../tokens-high-contrast.css">
+  <link rel="stylesheet" href="../tokens-dark.css">
+  <link rel="stylesheet" href="../components.css">
+  <script src="../icons.js"></script>
+</head>
+<body style="margin:0;">
+
+<!-- ══════════════════════════════════════════════════════════
+     Sitemap Builder — Control Menu + Applications sidebar + content
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- Control Menu -->
+<div class="control-menu">
+  <div class="control-menu__left">
+    <div class="control-menu__btns">
+      <button class="control-menu__btn" type="button" aria-label="Toggle product menu">
+        <svg class="lexicon-icon"><use href="#product-menu-closed"></use></svg>
+      </button>
+    </div>
+    <span class="control-menu__title" style="display:flex;align-items:center;gap:var(--spacing-2);">
+      <a href="sitemap-builder-sites.html" style="color:var(--color-dark);opacity:0.55;text-decoration:none;font-weight:var(--font-weight-semi);">Sitemap Builder</a>
+      <svg class="lexicon-icon lexicon-icon-sm" style="opacity:0.35;flex-shrink:0;"><use href="#angle-right-small"></use></svg>
+      <a href="sitemap-builder-list.html" style="color:var(--color-dark);opacity:0.55;text-decoration:none;font-weight:var(--font-weight-semi);">Europe</a>
+      <svg class="lexicon-icon lexicon-icon-sm" style="opacity:0.35;flex-shrink:0;"><use href="#angle-right-small"></use></svg>
+      <span id="breadcrumb-current">Main</span>
+    </span>
+  </div>
+  <div class="control-menu__right" style="display:flex;align-items:center;gap:var(--spacing-4);">
+    <label class="toggle" style="margin:0;">
+      <input type="checkbox" class="toggle__input" id="sitemap-active" checked>
+      <span class="toggle__track"><span class="toggle__dot"></span></span>
+      <span class="toggle__label">Active</span>
+    </label>
+    <button class="control-menu__btn" type="button" aria-label="Global navigation">
+      <svg class="lexicon-icon"><use href="#grid"></use></svg>
+    </button>
+    <div class="control-menu__avatar">
+      <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=72&h=72&fit=crop&auto=format" alt="Avatar">
+    </div>
+  </div>
+</div>
+
+<!-- Page layout: sidebar + content -->
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 60px);">
+
+  <!-- ── Applications Sidebar ───────────────────────────── -->
+  <aside class="cms-menu">
+    <div style="padding:var(--spacing-3) var(--spacing-4);">
+      <div class="search">
+        <input class="input__field search__field" type="search" placeholder="Search">
+        <button class="search__submit" aria-label="Search" type="button">
+          <svg class="lexicon-icon"><use href="#search"></use></svg>
+        </button>
+      </div>
+    </div>
+
+    <ul class="cms-menu__groups">
+
+      <li>
+        <ul class="vert-nav__list">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#home"></use></svg>
+            </span>
+            Home
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="true">
+          CONTENT
+          <svg class="lexicon-icon"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#documents-and-media"></use></svg>
+            </span>
+            Asset Libraries
+          </li>
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#analytics"></use></svg>
+            </span>
+            Content Dashboard
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="true">
+          PUBLICATIONS
+          <svg class="lexicon-icon"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list">
+          <li class="vert-nav__item is-active">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#hierarchy"></use></svg>
+            </span>
+            Sitemap Builder
+          </li>
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#document-text"></use></svg>
+            </span>
+            Publications
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="false">
+          WORKFLOW
+          <svg class="lexicon-icon" style="transform:rotate(-90deg)"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list" style="display:none;">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#process-builder"></use></svg>
+            </span>
+            Process Builder
+          </li>
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#analytics"></use></svg>
+            </span>
+            Metrics
+          </li>
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#document-default"></use></svg>
+            </span>
+            Submissions
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="false">
+          SEARCH EXPERIENCES
+          <svg class="lexicon-icon" style="transform:rotate(-90deg)"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list" style="display:none;">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#search"></use></svg>
+            </span>
+            Blue Prints
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="false">
+          SEARCH TUNING
+          <svg class="lexicon-icon" style="transform:rotate(-90deg)"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list" style="display:none;">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#search"></use></svg>
+            </span>
+            Synonyms
+          </li>
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#order-list-down"></use></svg>
+            </span>
+            Result Rankings
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="false">
+          COMMUNICATION
+          <svg class="lexicon-icon" style="transform:rotate(-90deg)"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list" style="display:none;">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#bell-on"></use></svg>
+            </span>
+            Announcements and Alerts
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="vert-nav__group-header" aria-expanded="false">
+          CUSTOM APPS
+          <svg class="lexicon-icon" style="transform:rotate(-90deg)"><use href="#angle-down-small"></use></svg>
+        </button>
+        <ul class="vert-nav__list" style="display:none;">
+          <li class="vert-nav__item">
+            <span class="vert-nav__icon-cell">
+              <svg class="lexicon-icon vert-nav__icon"><use href="#cog"></use></svg>
+            </span>
+            Client Extensions
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </aside>
+
+  <!-- ── Main Content ─────────────────────────────────── -->
+  <main style="display:flex;flex-direction:column;min-width:0;overflow-y:auto;">
+    <div style="padding:var(--spacing-6) var(--spacing-7);display:flex;flex-direction:column;gap:var(--spacing-7);">
+
+      <!-- Overview ────────────────────────────────────── -->
+      <section>
+        <h2 style="margin:0 0 var(--spacing-4);font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Overview</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-4);">
+
+          <article class="card">
+            <div class="card__body" style="flex-direction:row;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <p class="card__subtitle">Total Sitemaps</p>
+                <strong id="stat-sitemaps" style="font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);">7</strong>
+              </div>
+              <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#hierarchy"></use></svg>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body" style="flex-direction:row;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <p class="card__subtitle">URLs</p>
+                <strong style="font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);">1289</strong>
+              </div>
+              <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#link"></use></svg>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body" style="flex-direction:row;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <p class="card__subtitle">Locales</p>
+                <strong style="font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);">3</strong>
+              </div>
+              <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#globe"></use></svg>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body" style="flex-direction:row;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <p class="card__subtitle">Content Types</p>
+                <strong id="stat-content-types" style="font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);">6</strong>
+              </div>
+              <svg class="lexicon-icon js-card-icon" style="color:var(--color-secondary);"><use href="#document-text"></use></svg>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Rules ───────────────────────────────────────── -->
+      <section>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--spacing-3);">
+          <h2 style="margin:0;font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Rules</h2>
+          <button class="btn btn--secondary btn--sm" type="button" id="add-rule-btn">
+            <svg class="lexicon-icon"><use href="#plus"></use></svg>
+            Add Rule
+          </button>
+        </div>
+
+        <table class="table" id="rules-table">
+          <thead>
+            <tr>
+              <th style="width:28%;">Rule</th>
+              <th style="width:14%;">Content Type</th>
+              <th>Conditions</th>
+              <th style="width:48px;"></th>
+            </tr>
+          </thead>
+          <tbody id="rules-tbody"></tbody>
+        </table>
+
+        <div id="rules-empty" style="display:none;text-align:center;padding:var(--spacing-9);">
+          <svg class="lexicon-icon lexicon-icon-xl" style="display:block;margin:0 auto var(--spacing-3);opacity:0.25;"><use href="#document-text"></use></svg>
+          <p style="margin:0 0 var(--spacing-4);font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.55;">No rules defined yet.</p>
+          <button class="btn btn--primary btn--sm" type="button" id="add-rule-empty-btn">
+            <svg class="lexicon-icon"><use href="#plus"></use></svg>
+            Add First Rule
+          </button>
+        </div>
+      </section>
+
+      <!-- Configuration ──────────────────────────────── -->
+      <section class="sheet" style="padding-bottom:var(--spacing-8);">
+        <header class="sheet-header">
+          <h2 class="sheet-title">Configuration</h2>
+        </header>
+
+        <div class="input">
+          <label class="input__label" for="max-urls">Max URLs per Sitemap</label>
+          <input class="input__field" type="number" id="max-urls" value="50000" style="max-width:320px;">
+        </div>
+
+        <div class="sheet-row">
+          <div class="input">
+            <label class="input__label" for="change-freq">Change Frequency</label>
+            <select class="input__field" id="change-freq">
+              <option>Always</option>
+              <option>Hourly</option>
+              <option selected>Daily</option>
+              <option>Weekly</option>
+              <option>Monthly</option>
+              <option>Yearly</option>
+              <option>Never</option>
+            </select>
+          </div>
+          <div class="input">
+            <label class="input__label" for="default-priority">Default Priority</label>
+            <select class="input__field" id="default-priority">
+              <option>1.0</option><option>0.9</option><option>0.8</option><option>0.7</option>
+              <option>0.6</option><option selected>0.5</option><option>0.4</option>
+              <option>0.3</option><option>0.2</option><option>0.1</option><option>0.0</option>
+            </select>
+          </div>
+          <div></div><!-- spacer: only 2 of 3 cols occupied -->
+        </div>
+
+        <fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--spacing-4);">
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input" id="include-in-index" checked>
+            <span class="toggle__track"><span class="toggle__dot"></span></span>
+            <span class="toggle__label">Include in sitemap index</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input" checked>
+            <span class="toggle__track"><span class="toggle__dot"></span></span>
+            <span class="toggle__label">Include Images</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <span class="toggle__track"><span class="toggle__dot"></span></span>
+            <span class="toggle__label">Include Videos</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input" checked>
+            <span class="toggle__track"><span class="toggle__dot"></span></span>
+            <span class="toggle__label">Auto-regenerate on publish</span>
+          </label>
+        </fieldset>
+
+      </section>
+
+      <!-- Sitemap Preview ─────────────────────────────── -->
+      <section style="padding-bottom:var(--spacing-8);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-4);">
+          <h2 style="margin:0;font-size:var(--font-size-md);font-weight:var(--font-weight-bold);">Sitemap Preview</h2>
+          <div style="display:flex;align-items:center;gap:var(--spacing-4);">
+            <label class="toggle" style="margin:0;">
+              <input type="checkbox" class="toggle__input" id="preview-comments" checked>
+              <span class="toggle__track"><span class="toggle__dot"></span></span>
+              <span class="toggle__label">Include Comments</span>
+            </label>
+            <button class="btn btn--borderless btn--sm btn--icon" type="button" aria-label="Copy" id="preview-copy-btn">
+              <svg class="lexicon-icon"><use href="#copy"></use></svg>
+            </button>
+            <button class="btn btn--borderless btn--sm btn--icon" type="button" aria-label="Download">
+              <svg class="lexicon-icon"><use href="#download"></use></svg>
+            </button>
+          </div>
+        </div>
+        <pre id="sitemap-preview-code" style="margin:0;padding:var(--spacing-4) var(--spacing-5);background:var(--color-light);border:1px solid var(--color-light-l2);border-radius:var(--rounded-sm);font-size:11px;line-height:1.7;overflow-x:auto;white-space:pre;color:var(--color-dark);font-family:monospace;"></pre>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     Rule Modal — Add / Edit
+     ══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="rule-modal-overlay" style="display:none;">
+  <div class="modal" role="dialog" aria-modal="true"
+       style="max-width:700px;width:calc(100vw - var(--spacing-8));">
+
+    <header class="modal__header">
+      <h2 class="modal__title" id="rule-modal-title">Add Rule</h2>
+      <button class="btn btn--borderless btn--sm btn--icon modal__close" id="close-rule-modal" aria-label="Close" type="button">
+        <svg class="lexicon-icon"><use href="#times"></use></svg>
+      </button>
+    </header>
+
+    <div class="modal__body" style="padding:0;display:flex;flex-direction:column;max-height:68vh;overflow-y:auto;">
+
+      <!-- Name + Description -->
+      <div style="padding:var(--spacing-5);display:flex;flex-direction:column;gap:var(--spacing-4);border-bottom:1px solid var(--color-light-l2);">
+        <div class="input">
+          <label class="input__label" for="rule-name-input">Name</label>
+          <input class="input__field" id="rule-name-input" type="text" placeholder="Rule name" autocomplete="off">
+        </div>
+        <div class="input">
+          <label class="input__label" for="rule-description-input">Description</label>
+          <textarea class="input__field" id="rule-description-input" rows="3" placeholder="Add a description…" style="resize:vertical;"></textarea>
+        </div>
+      </div>
+
+      <!-- Conditions -->
+      <div style="padding:var(--spacing-5);border-top:1px solid var(--color-light-l2);">
+        <div style="display:flex;align-items:center;gap:var(--spacing-2);margin-bottom:var(--spacing-4);">
+          <svg class="lexicon-icon" style="color:var(--color-warning);"><use href="#filter"></use></svg>
+          <strong style="font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);">Conditions</strong>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--spacing-2);margin-bottom:var(--spacing-3);font-size:var(--font-size-sm);">
+          <span>If</span>
+          <div class="input input--sm" style="width:80px;flex-shrink:0;">
+            <select class="input__field" id="conditions-match">
+              <option value="all">All</option>
+              <option value="any">Any</option>
+            </select>
+          </div>
+          <span>of the following conditions are met:</span>
+        </div>
+        <div id="conditions-list" style="display:flex;flex-direction:column;gap:var(--spacing-2);"></div>
+        <div style="display:flex;align-items:center;gap:var(--spacing-5);margin-top:var(--spacing-4);">
+          <button class="btn btn--secondary btn--sm" type="button" id="add-condition-btn">
+            <svg class="lexicon-icon"><use href="#plus"></use></svg>
+            New Condition
+          </button>
+          <span id="url-match-count" style="font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.6;"></span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div style="padding:var(--spacing-5);border-top:1px solid var(--color-light-l2);">
+        <div style="display:flex;align-items:center;gap:var(--spacing-2);margin-bottom:var(--spacing-4);">
+          <svg class="lexicon-icon" style="color:var(--color-info);"><use href="#cog"></use></svg>
+          <strong style="font-size:var(--font-size-sm);font-weight:var(--font-weight-bold);">Actions</strong>
+        </div>
+        <div id="actions-list" style="display:flex;flex-direction:column;gap:var(--spacing-2);"></div>
+        <div style="margin-top:var(--spacing-4);">
+          <button class="btn btn--secondary btn--sm" type="button" id="add-action-btn">
+            <svg class="lexicon-icon"><use href="#plus"></use></svg>
+            New Action
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="modal__footer">
+      <button class="btn btn--secondary" type="button" id="cancel-rule-modal">Cancel</button>
+      <button class="btn btn--primary" type="button" id="save-rule-btn">Save</button>
+    </footer>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     Delete Confirmation Modal
+     ══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="delete-modal-overlay" style="display:none;">
+  <div class="modal modal--danger" role="dialog" aria-modal="true" style="max-width:460px;">
+    <header class="modal__header">
+      <h2 class="modal__title">
+        <svg class="lexicon-icon"><use href="#warning-full"></use></svg>
+        Delete Rule
+      </h2>
+      <button class="btn btn--borderless btn--sm btn--icon modal__close" id="close-delete-modal" aria-label="Close" type="button">
+        <svg class="lexicon-icon"><use href="#times"></use></svg>
+      </button>
+    </header>
+    <div class="modal__body">
+      <p style="margin:0;">Are you sure you want to delete the rule <strong id="delete-rule-name-label"></strong>?
+      This action cannot be undone.</p>
+    </div>
+    <footer class="modal__footer">
+      <button class="btn btn--secondary" type="button" id="cancel-delete-modal">Cancel</button>
+      <button class="btn btn--primary btn--danger" type="button" id="confirm-delete-btn">Delete</button>
+    </footer>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     JavaScript
+     ══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  var isNew = window.location.search.indexOf('new=1') !== -1;
+  if (isNew) {
+    document.getElementById('breadcrumb-current').textContent = 'New Sitemap';
+  }
+
+  // ── Data ──────────────────────────────────────────────────
+  var rules = isNew ? [] : [
+    { id:1, name:'Blog', description:'Includes all published blog posts with elevated priority.',
+      type:'include',
+      conditions:[{entity:'Content', field:'Content Type', op:'Is', value:'Blog Post'}],
+      actions:[{primary:'Include in Sitemap', sub:'Set Priority', subVal:'0.8'}] },
+    { id:2, name:'Pages', description:'Covers all public pages starting with the /pages path prefix.',
+      type:'include',
+      conditions:[{entity:'Page', field:'URL Pattern', op:'Starts With', value:'/pages'}],
+      actions:[{primary:'Include in Sitemap', sub:'Set Priority', subVal:'0.5'}] },
+    { id:3, name:'Categories', description:'Keeps internal-tagged content out of the sitemap.',
+      type:'exclude',
+      conditions:[{entity:'Content', field:'Tag', op:'Is', value:'internal'}],
+      actions:[{primary:'Exclude from Sitemap', sub:'', subVal:''}] },
+    { id:4, name:'Products', description:'Promotes commerce product pages with high priority.',
+      type:'include',
+      conditions:[{entity:'Content', field:'Content Type', op:'Is', value:'Commerce Product'}],
+      actions:[{primary:'Include in Sitemap', sub:'Set Priority', subVal:'0.8'}] },
+  ];
+  var nextId = isNew ? 1 : 5;
+  var editingId    = null;
+  var deletingId   = null;
+  var openDropdown = null;
+
+  // ── Dropdown data ─────────────────────────────────────────
+  var ENTITIES   = ['Content','Page','Document'];
+  var FIELDS = {
+    'Content' : ['Content Type','Status','Locale','Tag','Category','URL Pattern','Date Published','Date Modified'],
+    'Page'    : ['URL Pattern','Status','Locale','Tag','Category','Date Published','Date Modified'],
+    'Document': ['Content Type','Status','Locale','Tag','Category','URL Pattern','Date Published','Date Modified'],
+  };
+  var OPERATORS  = ['Is','Is Not','Contains','Does Not Contain','Starts With','Ends With','Is Greater Than','Is Less Than'];
+  var VALUES = {
+    'Content Type': ['Blog Post','Web Content','Knowledge Base Article','Commerce Product','Document','Forum Post'],
+    'Status'      : ['Published','Draft','Pending Review','Scheduled','Expired'],
+    'Locale'      : ['en-US','es-ES','fr-FR','de-DE','pt-BR'],
+  };
+  var ACTIONS    = ['Include in Sitemap','Exclude from Sitemap','Set Priority','Set Change Frequency','Set Last Modified'];
+  var PRIORITIES = ['1.0','0.9','0.8','0.7','0.6','0.5','0.4','0.3','0.2','0.1','0.0'];
+  var FREQS      = ['Always','Hourly','Daily','Weekly','Monthly','Yearly','Never'];
+
+  // ── Helpers ───────────────────────────────────────────────
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function mkSel(values, selected) {
+    var s = document.createElement('select');
+    s.className = 'input__field';
+    s.style.minWidth = '0';
+    values.forEach(function (v) {
+      var o = document.createElement('option');
+      o.value = o.textContent = v;
+      if (v === selected) o.selected = true;
+      s.appendChild(o);
+    });
+    return s;
+  }
+
+  function mkInput(val, ph) {
+    var i = document.createElement('input');
+    i.type = 'text'; i.className = 'input__field';
+    i.value = val || ''; i.placeholder = ph || 'Value';
+    i.style.minWidth = '0';
+    return i;
+  }
+
+  function mkRemoveBtn(label) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'btn btn--borderless btn--sm btn--icon';
+    b.setAttribute('aria-label', label || 'Remove');
+    b.innerHTML = '<svg class="lexicon-icon"><use href="#times"></use></svg>';
+    b.style.flexShrink = '0';
+    return b;
+  }
+
+  function condText(c) {
+    var f  = (c.field  || '').toLowerCase().replace(/ /g,'_');
+    var op = (c.op     || '').toLowerCase();
+    var v  = (c.value  || '').toLowerCase().replace(/ /g,'-');
+    return f + ' ' + op + ' ' + v;
+  }
+
+  function ruleSummary(rule) {
+    if (!rule.conditions.length) return '—';
+    var parts = rule.conditions.slice(0,2).map(condText);
+    if (rule.conditions.length > 2) parts.push('…');
+    return parts.join('; ');
+  }
+
+  function fakeCount() {
+    return ((Math.floor(Math.random() * 29) + 1) * 43).toLocaleString();
+  }
+
+  // ── Table ─────────────────────────────────────────────────
+  function renderTable() {
+    var tbody = document.getElementById('rules-tbody');
+    var empty = document.getElementById('rules-empty');
+    var table = document.getElementById('rules-table');
+    tbody.innerHTML = '';
+
+    if (!rules.length) {
+      table.style.display = 'none';
+      empty.style.display = '';
+      return;
+    }
+    table.style.display = '';
+    empty.style.display = 'none';
+
+    rules.forEach(function (rule) {
+      var tr = document.createElement('tr');
+      tr.dataset.id = rule.id;
+
+      // Name + description cell
+      var tdName = document.createElement('td');
+      tdName.innerHTML =
+        '<div style="display:flex;align-items:flex-start;gap:var(--spacing-2);">' +
+          '<svg class="lexicon-icon" style="flex-shrink:0;opacity:0.45;margin-top:2px;"><use href="#folder"></use></svg>' +
+          '<div>' +
+            '<a href="#" class="table__title js-edit-rule-link" style="font-weight:var(--font-weight-bold);display:block;">' +
+              esc(rule.name) +
+            '</a>' +
+            (rule.description
+              ? '<span style="display:block;font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.55;margin-top:var(--spacing-1);">' + esc(rule.description) + '</span>'
+              : '') +
+          '</div>' +
+        '</div>';
+      tr.appendChild(tdName);
+
+      // Include / Exclude badge
+      var isInc = rule.type === 'include';
+      var tdBadge = document.createElement('td');
+      tdBadge.innerHTML =
+        '<span class="label label--sm label--bold ' + (isInc ? 'label--success' : 'label--danger') + '">' +
+          (isInc ? 'Include' : 'Exclude') +
+        '</span>';
+      tr.appendChild(tdBadge);
+
+      // Conditions summary
+      var tdCond = document.createElement('td');
+      tdCond.style.cssText = 'font-size:var(--font-size-sm);color:var(--color-dark);opacity:0.7;';
+      tdCond.textContent = ruleSummary(rule);
+      tr.appendChild(tdCond);
+
+      // ⋮ menu
+      var tdMenu = document.createElement('td');
+      tdMenu.className = 'table__cell--gutter';
+      tdMenu.style.position = 'relative';
+      tdMenu.innerHTML =
+        '<button class="btn btn--borderless btn--sm btn--icon js-row-menu" aria-label="More actions" type="button">' +
+          '<svg class="lexicon-icon"><use href="#ellipsis-v"></use></svg>' +
+        '</button>' +
+        '<ul class="dropdown js-row-dropdown" style="display:none;position:absolute;right:0;top:calc(100% + 2px);z-index:200;min-width:130px;">' +
+          '<li><button class="dropdown__item js-row-edit" type="button">Edit</button></li>' +
+          '<li><button class="dropdown__item js-row-delete" type="button" style="color:var(--color-danger);">Delete</button></li>' +
+        '</ul>';
+      tr.appendChild(tdMenu);
+
+      tbody.appendChild(tr);
+    });
+
+    tbody.querySelectorAll('.js-edit-rule-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        openRuleModal(parseInt(a.closest('tr').dataset.id, 10));
+      });
+    });
+
+    tbody.querySelectorAll('.js-row-menu').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var dd = btn.nextElementSibling;
+        if (openDropdown && openDropdown !== dd) openDropdown.style.display = 'none';
+        var show = dd.style.display === 'none';
+        dd.style.display = show ? 'block' : 'none';
+        openDropdown = show ? dd : null;
+      });
+    });
+
+    tbody.querySelectorAll('.js-row-edit').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closeAllDropdowns();
+        openRuleModal(parseInt(btn.closest('tr').dataset.id, 10));
+      });
+    });
+
+    tbody.querySelectorAll('.js-row-delete').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closeAllDropdowns();
+        openDeleteModal(parseInt(btn.closest('tr').dataset.id, 10));
+      });
+    });
+  }
+
+  function closeAllDropdowns() {
+    if (openDropdown) { openDropdown.style.display = 'none'; openDropdown = null; }
+  }
+  document.addEventListener('click', closeAllDropdowns);
+
+  // ── Rule Modal ────────────────────────────────────────────
+  var ruleOverlay        = document.getElementById('rule-modal-overlay');
+  var ruleModalTitle     = document.getElementById('rule-modal-title');
+  var ruleNameInput      = document.getElementById('rule-name-input');
+  var ruleDescInput      = document.getElementById('rule-description-input');
+  var condsList          = document.getElementById('conditions-list');
+  var actsList           = document.getElementById('actions-list');
+  var urlCount           = document.getElementById('url-match-count');
+
+  function openRuleModal(id) {
+    editingId = id || null;
+    var rule  = id ? rules.find(function (r) { return r.id === id; }) : null;
+
+    ruleModalTitle.textContent = id ? 'Edit Rule' : 'Add Rule';
+    ruleNameInput.value = rule ? rule.name : '';
+    ruleDescInput.value = rule ? (rule.description || '') : '';
+    condsList.innerHTML = '';
+    actsList.innerHTML  = '';
+    document.getElementById('conditions-match').value = 'all';
+
+    var conds = rule ? rule.conditions : [{entity:'Content', field:'Content Type', op:'Is', value:'Blog Post'}];
+    var acts  = rule ? rule.actions    : [{primary:'Include in Sitemap', sub:'Set Priority', subVal:'0.8'}];
+
+    conds.forEach(function (c) { addConditionRow(c); });
+    acts.forEach(function (a)  { addActionRow(a);    });
+
+    refreshUrlCount();
+    ruleOverlay.style.display = 'flex';
+    setTimeout(function () { ruleNameInput.focus(); ruleNameInput.select(); }, 40);
+  }
+
+  function closeRuleModal() { ruleOverlay.style.display = 'none'; editingId = null; }
+
+  // ── Condition rows ────────────────────────────────────────
+  function addConditionRow(c) {
+    c = c || {entity:'Content', field:'Content Type', op:'Is', value:''};
+
+    var row = document.createElement('div');
+    row.className = 'condition-row';
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr 1fr 32px;gap:var(--spacing-2);align-items:center;border-left:3px solid var(--color-warning);padding-left:var(--spacing-3);';
+
+    var selEnt = mkSel(ENTITIES, c.entity);
+    selEnt.classList.add('sel-entity');
+
+    var selFld = mkSel(FIELDS[c.entity] || FIELDS['Content'], c.field);
+    selFld.classList.add('sel-field');
+
+    var selOp  = mkSel(OPERATORS, c.op);
+    selOp.classList.add('sel-op');
+
+    var valWrap = document.createElement('div');
+    valWrap.style.minWidth = '0';
+
+    function buildVal(field, value) {
+      valWrap.innerHTML = '';
+      var opts = VALUES[field];
+      var el   = (opts && opts.length) ? mkSel(opts, value) : mkInput(value);
+      el.classList.add('sel-value');
+      valWrap.appendChild(el);
+      refreshUrlCount();
+    }
+    buildVal(c.field, c.value);
+
+    selEnt.addEventListener('change', function () {
+      var newFields = FIELDS[selEnt.value] || [];
+      selFld.innerHTML = '';
+      newFields.forEach(function (f) {
+        var o = document.createElement('option'); o.value = o.textContent = f;
+        selFld.appendChild(o);
+      });
+      buildVal(newFields[0] || '', '');
+    });
+    selFld.addEventListener('change', function () { buildVal(selFld.value, ''); });
+    selOp.addEventListener('change', refreshUrlCount);
+
+    var rmBtn = mkRemoveBtn('Remove condition');
+    rmBtn.addEventListener('click', function () { row.remove(); refreshUrlCount(); });
+
+    row.appendChild(selEnt);
+    row.appendChild(selFld);
+    row.appendChild(selOp);
+    row.appendChild(valWrap);
+    row.appendChild(rmBtn);
+    condsList.appendChild(row);
+  }
+
+  function refreshUrlCount() {
+    var n = condsList.querySelectorAll('.condition-row').length;
+    urlCount.textContent = n ? fakeCount() + ' URLs match' : '';
+  }
+
+  document.getElementById('add-condition-btn').addEventListener('click', function () { addConditionRow(); });
+
+  // ── Action rows ───────────────────────────────────────────
+  function addActionRow(a) {
+    a = a || {primary:'Include in Sitemap', sub:'', subVal:''};
+
+    var row = document.createElement('div');
+    row.className = 'action-row';
+    row.style.cssText = 'display:flex;gap:var(--spacing-2);align-items:center;border-left:3px solid var(--color-info);padding-left:var(--spacing-3);';
+
+    var selPrimary = mkSel(ACTIONS, a.primary);
+    selPrimary.style.cssText = 'flex:0 0 auto;min-width:190px;';
+
+    var subWrap = document.createElement('div');
+    subWrap.style.cssText = 'display:flex;gap:var(--spacing-2);flex:1;align-items:center;';
+
+    function buildSub(action, sub, subVal) {
+      subWrap.innerHTML = '';
+      if (action === 'Include in Sitemap' || action === 'Exclude from Sitemap') {
+        var SUBS   = ['—','Set Priority','Set Change Frequency'];
+        var selSub = mkSel(SUBS, sub || '—');
+        selSub.style.minWidth = '160px';
+        subWrap.appendChild(selSub);
+
+        var selSubVal = document.createElement('select');
+        selSubVal.className = 'input__field';
+        selSubVal.style.minWidth = '80px';
+        subWrap.appendChild(selSubVal);
+
+        function buildSubVal(subAction, v) {
+          selSubVal.innerHTML = '';
+          if (subAction === 'Set Priority') {
+            PRIORITIES.forEach(function (p) {
+              var o = document.createElement('option'); o.value = o.textContent = p;
+              if (p === (v || '0.8')) o.selected = true;
+              selSubVal.appendChild(o);
+            });
+            selSubVal.style.display = '';
+          } else if (subAction === 'Set Change Frequency') {
+            FREQS.forEach(function (f) {
+              var o = document.createElement('option'); o.value = o.textContent = f;
+              if (f === (v || 'Daily')) o.selected = true;
+              selSubVal.appendChild(o);
+            });
+            selSubVal.style.display = '';
+          } else {
+            selSubVal.style.display = 'none';
+          }
+        }
+        buildSubVal(sub || '—', subVal);
+        selSub.addEventListener('change', function () { buildSubVal(selSub.value, ''); });
+
+      } else if (action === 'Set Priority') {
+        var sv = mkSel(PRIORITIES, subVal || '0.5');
+        sv.style.minWidth = '80px';
+        subWrap.appendChild(sv);
+      } else if (action === 'Set Change Frequency') {
+        var sv = mkSel(FREQS, subVal || 'Daily');
+        sv.style.minWidth = '120px';
+        subWrap.appendChild(sv);
+      }
+    }
+    buildSub(a.primary, a.sub, a.subVal);
+    selPrimary.addEventListener('change', function () { buildSub(selPrimary.value, '', ''); });
+
+    var rmBtn = mkRemoveBtn('Remove action');
+    rmBtn.addEventListener('click', function () { row.remove(); });
+
+    row.appendChild(selPrimary);
+    row.appendChild(subWrap);
+    row.appendChild(rmBtn);
+    actsList.appendChild(row);
+  }
+
+  document.getElementById('add-action-btn').addEventListener('click', function () { addActionRow(); });
+
+  // ── Save ──────────────────────────────────────────────────
+  document.getElementById('save-rule-btn').addEventListener('click', function () {
+    var name = ruleNameInput.value.trim() || 'Unnamed Rule';
+    var description = ruleDescInput.value.trim();
+
+    var conds = [];
+    condsList.querySelectorAll('.condition-row').forEach(function (row) {
+      conds.push({
+        entity : (row.querySelector('.sel-entity') || {}).value || '',
+        field  : (row.querySelector('.sel-field')  || {}).value || '',
+        op     : (row.querySelector('.sel-op')     || {}).value || '',
+        value  : (row.querySelector('.sel-value')  || {}).value || '',
+      });
+    });
+
+    var acts     = [];
+    var mainType = 'include';
+    actsList.querySelectorAll('.action-row').forEach(function (row, i) {
+      var sels    = row.querySelectorAll('select');
+      var primary = sels[0] ? sels[0].value : 'Include in Sitemap';
+      var sub     = sels[1] ? sels[1].value : '';
+      var subVal  = sels[2] ? sels[2].value : '';
+      acts.push({primary:primary, sub:sub, subVal:subVal});
+      if (i === 0) mainType = primary.indexOf('Exclude') >= 0 ? 'exclude' : 'include';
+    });
+
+    if (editingId) {
+      var idx = rules.findIndex(function (r) { return r.id === editingId; });
+      if (idx >= 0) rules[idx] = {id:editingId, name:name, description:description, type:mainType, conditions:conds, actions:acts};
+    } else {
+      rules.push({id:nextId++, name:name, description:description, type:mainType, conditions:conds, actions:acts});
+    }
+
+    renderTable();
+    closeRuleModal();
+  });
+
+  document.getElementById('close-rule-modal').addEventListener('click',  closeRuleModal);
+  document.getElementById('cancel-rule-modal').addEventListener('click', closeRuleModal);
+  ruleOverlay.addEventListener('click', function (e) { if (e.target === ruleOverlay) closeRuleModal(); });
+
+  document.getElementById('add-rule-btn').addEventListener('click', function () { openRuleModal(null); });
+  var emptyBtn = document.getElementById('add-rule-empty-btn');
+  if (emptyBtn) emptyBtn.addEventListener('click', function () { openRuleModal(null); });
+
+  // ── Delete Modal ──────────────────────────────────────────
+  var delOverlay = document.getElementById('delete-modal-overlay');
+
+  function openDeleteModal(id) {
+    deletingId = id;
+    var rule   = rules.find(function (r) { return r.id === id; });
+    document.getElementById('delete-rule-name-label').textContent = rule ? '"' + rule.name + '"' : '';
+    delOverlay.style.display = 'flex';
+  }
+
+  function closeDeleteModal() { delOverlay.style.display = 'none'; deletingId = null; }
+
+  document.getElementById('close-delete-modal').addEventListener('click',  closeDeleteModal);
+  document.getElementById('cancel-delete-modal').addEventListener('click', closeDeleteModal);
+  delOverlay.addEventListener('click', function (e) { if (e.target === delOverlay) closeDeleteModal(); });
+
+  document.getElementById('confirm-delete-btn').addEventListener('click', function () {
+    rules = rules.filter(function (r) { return r.id !== deletingId; });
+    renderTable();
+    closeDeleteModal();
+  });
+
+  // ── CMS Menu collapsible ──────────────────────────────────
+  document.querySelectorAll('.vert-nav__group-header').forEach(function (hdr) {
+    if (!hdr.hasAttribute('aria-expanded')) hdr.setAttribute('aria-expanded', 'true');
+    if (hdr.tagName === 'DIV') { hdr.setAttribute('role','button'); hdr.setAttribute('tabindex','0'); }
+    var icons   = hdr.querySelectorAll('svg.lexicon-icon');
+    var chevron = icons[icons.length - 1] || null;
+    if (chevron) chevron.style.transition = 'transform 150ms ease';
+
+    function toggle() {
+      var expanded = hdr.getAttribute('aria-expanded') !== 'false';
+      var next     = !expanded;
+      hdr.setAttribute('aria-expanded', String(next));
+      var li   = hdr.parentElement;
+      var list = li && li.querySelector(':scope > .vert-nav__list');
+      if (list)    list.style.display        = next ? '' : 'none';
+      if (chevron) chevron.style.transform   = next ? '' : 'rotate(-90deg)';
+    }
+
+    hdr.addEventListener('click', function (e) {
+      if (e.target.closest('.vert-nav__group-actions button')) return;
+      toggle();
+    });
+    hdr.addEventListener('keydown', function (e) {
+      if (hdr.tagName === 'DIV' && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); toggle(); }
+    });
+  });
+
+  // ── Keyboard ──────────────────────────────────────────────
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (ruleOverlay.style.display  !== 'none') { closeRuleModal();   return; }
+    if (delOverlay.style.display   !== 'none') { closeDeleteModal(); return; }
+    closeAllDropdowns();
+  });
+
+  // ── Sitemap Preview ───────────────────────────────────────
+  var previewEl      = document.getElementById('sitemap-preview-code');
+  var previewToggle  = document.getElementById('preview-comments');
+  var previewCopyBtn = document.getElementById('preview-copy-btn');
+
+  var sampleUrls = [
+    { loc: 'https://www.example.com/blog/liferay-dxp-7-4-release-notes/', lastmod: '2026-04-06', changefreq: 'weekly',  priority: '0.8', rule: 'Blog' },
+    { loc: 'https://www.example.com/blog/getting-started-with-objects/',   lastmod: '2026-04-05', changefreq: 'weekly',  priority: '0.8', rule: 'Blog' },
+    { loc: 'https://www.example.com/blog/headless-cms-best-practices/',    lastmod: '2026-04-03', changefreq: 'weekly',  priority: '0.8', rule: 'Blog' },
+    { loc: 'https://www.example.com/pages/home/',                          lastmod: '2026-04-01', changefreq: 'daily',   priority: '1.0', rule: 'Pages' },
+    { loc: 'https://www.example.com/pages/about/',                         lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6', rule: 'Pages' },
+    { loc: 'https://www.example.com/products/liferay-dxp/',                lastmod: '2026-04-04', changefreq: 'weekly',  priority: '0.8', rule: 'Products' },
+    { loc: 'https://www.example.com/products/liferay-commerce/',           lastmod: '2026-04-02', changefreq: 'weekly',  priority: '0.8', rule: 'Products' },
+  ];
+
+  function buildXml(withComments) {
+    var lines = [];
+    lines.push('<?xml version="1.0" encoding="UTF-8"?>');
+    if (withComments) {
+      lines.push('<!-- Generated by Sitemap Builder on 2026-04-07 -->');
+    }
+    lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+
+    var lastRule = null;
+    sampleUrls.forEach(function (u) {
+      if (withComments && u.rule !== lastRule) {
+        lines.push('  <!-- Rule: ' + u.rule + ' -->');
+        lastRule = u.rule;
+      }
+      lines.push('  <url>');
+      lines.push('    <loc>' + u.loc + '</loc>');
+      lines.push('    <lastmod>' + u.lastmod + '</lastmod>');
+      lines.push('    <changefreq>' + u.changefreq + '</changefreq>');
+      lines.push('    <priority>' + u.priority + '</priority>');
+      lines.push('  </url>');
+    });
+
+    if (withComments) {
+      lines.push('  <!-- ... ' + (1289 - sampleUrls.length) + ' more entries ... -->');
+    }
+    lines.push('</urlset>');
+    return lines.join('\n');
+  }
+
+  function renderPreview() {
+    previewEl.textContent = buildXml(previewToggle.checked);
+  }
+
+  previewToggle.addEventListener('change', renderPreview);
+
+  previewCopyBtn.addEventListener('click', function () {
+    navigator.clipboard.writeText(previewEl.textContent).then(function () {
+      var icon = previewCopyBtn.querySelector('use');
+      icon.setAttribute('href', '#check');
+      setTimeout(function () { icon.setAttribute('href', '#copy'); }, 1500);
+    });
+  });
+
+  // ── Init ──────────────────────────────────────────────────
+  renderTable();
+  renderPreview();
+
+})();
+</script>
+
+</body>
+</html>
