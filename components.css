@@ -3917,7 +3917,7 @@
 .table__title {
   font-weight: var(--font-weight-bold);
   color: var(--color-dark);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .table__title:hover { color: var(--color-primary); }
